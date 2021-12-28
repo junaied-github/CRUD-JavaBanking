@@ -1,25 +1,27 @@
 package com.bank;
 
+import java.sql.Timestamp;
+
+
 public class Banking {
 
-    public double getBalance(Customer customer) {
-        return customer.getBalance();
-    }
+    public static void transferMoney(Integer fromCustomerId, Integer toCustomerID, Double amount ) {
+        if(Database.customerObject(toCustomerID) != null){
+            Customer authCustomer = Database.customerObject(fromCustomerId);
+            Customer toCustomer = Database.customerObject(toCustomerID);
 
-    public double setBalance(Customer customer, double balance) {
-        return 0;
-    }
-
-    public double withdraw(Customer customer, double amount) {
-        return 0;
-    }
-
-    public double transferMoney(Customer customer, double amount) {
-        return 0;
-    }
-
-    public double transferHistory(Customer customer) {
-        return 0;
+            if(authCustomer.withdrawBalance(amount)) {
+                String dateTime1 = new Timestamp(System.currentTimeMillis()).toString();
+                Database.addTransaction(new Transaction(dateTime1, fromCustomerId, amount, "Out", toCustomerID));
+                toCustomer.setBalance(amount);
+                String dateTime2 = new Timestamp(System.currentTimeMillis()).toString();
+                Database.addTransaction(new Transaction(dateTime2, toCustomerID, amount, "In", fromCustomerId));
+            }else{
+                System.out.println("Something went wrong!");
+            }
+        }else {
+            System.out.println("Transfer user not found!");
+        }
     }
 
 }

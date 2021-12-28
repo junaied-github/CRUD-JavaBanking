@@ -2,8 +2,8 @@ package com.bank;
 
 public class Executive {
 
-    private String username;
-    private String password;
+    public String username;
+    public String password;
 
     public Executive(String username, String password){
         this.username = username;
@@ -14,7 +14,7 @@ public class Executive {
         return password;
     }
 
-    public String getUsername() {
+    public String getUserName() {
         return username;
     }
 }

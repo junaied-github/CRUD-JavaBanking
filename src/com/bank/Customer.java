@@ -2,12 +2,12 @@ package com.bank;
 
 public class Customer {
 
-    private String name;
-    private String address;
-    private String userName;
-    private Integer userId;
-    private Double balance;
-    private String password;
+    public String name;
+    public String address;
+    public String userName;
+    public Integer userId;
+    public Double balance;
+    public String password;
 
     public Customer(String name, String address, Integer userID, Double balance, String userName, String password){
         this.name = name;
@@ -43,6 +43,22 @@ public class Customer {
     }
 
     public void setBalance(Double balance) {
-        this.balance = balance;
+        if(balance > 0){
+            this.balance += balance;
+        }else {
+            System.out.println("Incorrect Amount");
+        }
+
+    }
+
+    public boolean withdrawBalance(Double balance) {
+        if(balance > 0 && this.balance >= balance){
+            this.balance -= balance;
+            return true;
+        }else {
+            System.out.println("Incorrect Amount");
+            return false;
+        }
+
     }
 }
