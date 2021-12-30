@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static Scanner scanner;
-    public static int menu;
+    private static Scanner scanner;
+    private static int menu;
 
     private static String adminUsername = "admin";
     private static String adminPassword = "admin";
@@ -17,7 +17,7 @@ public class Main {
 
     private static boolean loginStatus = false;
 
-    public static Integer getAuthCustomerID(){
+    private static Integer getAuthCustomerID(){
         return authCustomerUserID;
     }
 

@@ -1,11 +1,11 @@
 package com.bank;
 
 public class Transaction {
-    public String date;
-    public Integer userID;
-    public Double amount;
-    public String type;
-    public Integer transferUserID;
+    private String date;
+    private Integer userID;
+    private Double amount;
+    private String type;
+    private Integer transferUserID;
 
     public Transaction(String date, Integer userID, Double amount, String type, Integer transferUserID){
         this.date = date;

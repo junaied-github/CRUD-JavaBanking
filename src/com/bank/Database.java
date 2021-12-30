@@ -2,9 +2,9 @@ package com.bank;
 import java.util.ArrayList;
 
 public class Database {
-    static ArrayList<Customer> customerList = new ArrayList<Customer>();
-    static ArrayList<Executive> executiveList = new ArrayList<Executive>();
-    static ArrayList<Transaction> transactionList = new ArrayList<Transaction>();
+    private static ArrayList<Customer> customerList = new ArrayList<Customer>();
+    private static ArrayList<Executive> executiveList = new ArrayList<Executive>();
+    private static ArrayList<Transaction> transactionList = new ArrayList<Transaction>();
 
     public static void addCustomer(Customer customer){
         customerList.add(customer);
